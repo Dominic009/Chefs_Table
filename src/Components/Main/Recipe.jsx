@@ -1,13 +1,34 @@
 import { useEffect, useState } from "react";
 import Items from "./Recipe items/Items";
+import Que from "./Que";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+
+
+
 const Recipe = () => {
   const [recipes, setRecipes] = useState([]);
+  const [cook, setCook] = useState([]);
 
   useEffect(() => {
     fetch("./recipes.json")
       .then((res) => res.json())
       .then((data) => setRecipes(data));
   }, []);
+
+  const notify = () => toast("Item alredy exists!");
+
+  const handleWantToCook = (item) => {
+    const isExist = cook.find((res) => res.recipe_id == item.recipe_id);
+    if (!isExist) {
+      setCook([...cook, item]);
+    } else {
+      notify()
+    }
+  };
+
+
 
   return (
     <div className="text-center">
@@ -22,51 +43,46 @@ const Recipe = () => {
         {/* left side */}
         <div className="w-[70%] grid md:grid-cols-2 gap-4">
           {recipes.map((recipe) => (
-            <Items key={recipe.recipe_id} recipe={recipe}></Items>
+            <Items
+              key={recipe.recipe_id}
+              recipe={recipe}
+              handleWantToCook={handleWantToCook}
+            ></Items>
           ))}
         </div>
 
         {/* right side */}
-        <div className="w-[40%] border border-red-500">
-          <h1>Ready to cook : 0</h1>
-          <hr />
-          <div>
-          <div className="overflow-x-auto">
-  <table className="table">
-    {/* head */}
-    <thead>
-      <tr>
-        <th></th>
-        <th>Name</th>
-        <th>Job</th>
-        <th>Favorite Color</th>
-      </tr>
-    </thead>
-    <tbody>
-      {/* row 1 */}
-      <tr>
-        <th>1</th>
-        <td>Cy Ganderton</td>
-        <td>Quality Control Specialist</td>
-        <td>Blue</td>
-      </tr>
-      {/* row 2 */}
-      <tr>
-        <th>2</th>
-        <td>Hart Hagerty</td>
-        <td>Desktop Support Technician</td>
-        <td>Purple</td>
-      </tr>
-      {/* row 3 */}
-      <tr>
-        <th>3</th>
-        <td>Brice Swyre</td>
-        <td>Tax Accountant</td>
-        <td>Red</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+        <div>
+          <ToastContainer></ToastContainer>
+          <div className="border rounded-xl w-[440px] p-3">
+            <h1 className="text-2xl font-bold text-white mb-2">
+              Ready to cook : {cook.length}
+            </h1>
+
+            <div>
+              <div className="overflow-x-auto bg-white p-5 rounded-xl">
+                <table className="table text-gray-500">
+                  {/* head */}
+                  <thead className="flex">
+                    <tr className="flex justify-end gap-2 w-[80%] text-[16px]">
+                      <th>Name</th>
+                      <th>Time</th>
+                      <th>Calories</th>
+                    </tr>
+                  </thead>
+                  <tbody className="flex">
+                    {/* row 1 */}
+                    <tr className=" bg-gray-100 border border-green-400">
+                      {/* <th>1</th> */}
+                      {
+                        cook.map((item, index) => <Que index={index} item={item} key={index}></Que>)
+                      }
+                    </tr>
+                  </tbody>
+                </table>
+                <br />
+              </div>
+            </div>
           </div>
         </div>
       </div>

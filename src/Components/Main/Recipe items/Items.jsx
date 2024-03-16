@@ -1,9 +1,7 @@
 import { IoMdTime } from "react-icons/io";
 import { FaFire } from "react-icons/fa";
 
-
-
-const Items = ({ recipe }) => {
+const Items = ({ recipe, handleWantToCook }) => {
   const {
     recipe_id,
     recipe_name,
@@ -13,6 +11,7 @@ const Items = ({ recipe }) => {
     preparing_time,
     calories,
   } = recipe;
+
   return (
     <div>
       {/* left side */}
@@ -27,19 +26,32 @@ const Items = ({ recipe }) => {
             <span>{ingredients.length}</span>
           </div>
           <div className="fira text-gray-500">
-            {ingredients.map((ingredient) => (
-              <li className="ml-3 mb-1" key={recipe_id}>
-                {ingredient}
-              </li>
-            ))}
+            {ingredients
+              .map((ingredient, idx) => (
+                <li className="ml-3 mb-1" key={idx}>
+                  {ingredient.slice(0, 60)}
+                </li>
+              ))
+              .slice(0, 6)}
           </div>
 
           <hr />
           <div className="flex justify-around gap-5 text-gray-600">
-            <p className="flex items-center gap-2"><IoMdTime></IoMdTime>{preparing_time}</p>
-            <p className="flex items-center gap-2"><FaFire></FaFire>{calories}</p>
+            <p className="flex items-center gap-2">
+              <IoMdTime></IoMdTime>
+              {preparing_time}
+            </p>
+            <p className="flex items-center gap-2">
+              <FaFire></FaFire>
+              {calories}
+            </p>
           </div>
-          <button className="btn">Want to Cook</button>
+          <button
+            onClick={() => handleWantToCook(recipe)}
+            className="btn bg-green-500 text-white hover:text-green-500"
+          >
+            Want to Cook
+          </button>
         </div>
       </div>
     </div>
