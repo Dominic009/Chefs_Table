@@ -8,6 +8,7 @@ import Cooking from "./Cooking";
 const Recipe = () => {
   const [recipes, setRecipes] = useState([]);
   const [cook, setCook] = useState([]);
+  const [que, setQue] = useState([]);
 
   useEffect(() => {
     fetch("./recipes.json")
@@ -29,6 +30,9 @@ const Recipe = () => {
   const handlePrepare = (id) => {
     const newArr = cook.filter(item => item.recipe_id !== id);
     setCook(newArr);
+
+    // const cooking = cook.filter(item => item.recipe_id == id);
+    // setQue([...que, ...cooking]);
   };
 
   return (
@@ -88,6 +92,13 @@ const Recipe = () => {
           </div>
           <div className="mt-7 border rounded-xl p-3">
             <Cooking></Cooking>
+          {/* {recipes.map((recipe) => (
+            <Cooking
+              key={recipe.recipe_id}
+              recipe={recipe}
+              handleWantToCook={handleWantToCook}
+            ></Cooking>
+          ))} */}
           </div>
         </div>
       </div>

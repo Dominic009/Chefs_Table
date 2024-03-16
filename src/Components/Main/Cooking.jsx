@@ -1,5 +1,8 @@
 
 const Cooking = () => {
+
+    // const {recipe_name, preparation_time, calories} = recipe;
+
     return (
         <div>
             <div>
@@ -25,6 +28,7 @@ const Cooking = () => {
             </div>
         </div>
     );
+    
 };
 
 export default Cooking;

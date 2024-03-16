@@ -1,4 +1,4 @@
-import { IoMdTime } from "react-icons/io";
+import { FaClock } from "react-icons/fa";
 import { FaFire } from "react-icons/fa";
 
 const Items = ({ recipe, handleWantToCook }) => {
@@ -38,11 +38,11 @@ const Items = ({ recipe, handleWantToCook }) => {
           <hr />
           <div className="flex justify-around gap-5 text-gray-600">
             <p className="flex items-center gap-2">
-              <IoMdTime></IoMdTime>
+              <FaClock className="text-purple-600"></FaClock>
               {preparing_time}
             </p>
             <p className="flex items-center gap-2">
-              <FaFire></FaFire>
+              <FaFire className="text-purple-600"></FaFire>
               {calories}
             </p>
           </div>
