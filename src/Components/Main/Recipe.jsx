@@ -1,11 +1,8 @@
 import { useEffect, useState } from "react";
 import Items from "./Recipe items/Items";
 import Que from "./Que";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-
-
-
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Recipe = () => {
   const [recipes, setRecipes] = useState([]);
@@ -24,11 +21,9 @@ const Recipe = () => {
     if (!isExist) {
       setCook([...cook, item]);
     } else {
-      notify()
+      notify();
     }
   };
-
-
 
   return (
     <div className="text-center">
@@ -74,9 +69,9 @@ const Recipe = () => {
                     {/* row 1 */}
                     <tr className=" bg-gray-100 border border-green-400">
                       {/* <th>1</th> */}
-                      {
-                        cook.map((item, index) => <Que index={index} item={item} key={index}></Que>)
-                      }
+                      {cook.map((item, index) => (
+                        <Que index={index} item={item} key={index}></Que>
+                      ))}
                     </tr>
                   </tbody>
                 </table>
