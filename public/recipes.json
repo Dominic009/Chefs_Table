@@ -2,7 +2,7 @@
     {
       "recipe_id": 1,
       "recipe_name": "Chicken Stir-Fry",
-      "recipe_image": "../src/assets/Recipe1/2.png",
+      "recipe_image": "https://i.ibb.co/S6wPYx2/2.png",
       "short_description": "A quick and flavorful chicken stir-fry dish.",
       "ingredients": [
         "550 g chicken breast, sliced",
@@ -18,7 +18,7 @@
     {
       "recipe_id": 2,
       "recipe_name": "Vegetable Curry",
-      "recipe_image": "https://example.com/vegetable_curry.jpg",
+      "recipe_image": "https://i.ibb.co/S6wPYx2/2.png",
       "short_description": "A delicious and aromatic vegetable curry.",
       "ingredients": [
         "1 large onion, chopped",
@@ -35,7 +35,7 @@
     {
       "recipe_id": 3,
       "recipe_name": "Pasta Carbonara",
-      "recipe_image": "https://example.com/pasta_carbonara.jpg",
+      "recipe_image": "https://i.ibb.co/S6wPYx2/2.png",
       "short_description": "A classic Italian pasta dish with creamy sauce.",
       "ingredients": [
         "400 g spaghetti",
@@ -51,7 +51,7 @@
     {
       "recipe_id": 4,
       "recipe_name": "Avocado Toast",
-      "recipe_image": "https://example.com/avocado_toast.jpg",
+      "recipe_image": "https://i.ibb.co/S6wPYx2/2.png",
       "short_description": "A simple and healthy breakfast option.",
       "ingredients": [
         "2 slices whole grain bread",
@@ -66,7 +66,7 @@
     {
       "recipe_id": 5,
       "recipe_name": "Banana Smoothie",
-      "recipe_image": "https://example.com/banana_smoothie.jpg",
+      "recipe_image": "https://i.ibb.co/S6wPYx2/2.png",
       "short_description": "A refreshing and nutritious smoothie made with bananas.",
       "ingredients": [
         "2 ripe bananas",
@@ -81,7 +81,7 @@
     {
       "recipe_id": 6,
       "recipe_name": "Grilled Salmon",
-      "recipe_image": "https://example.com/grilled_salmon.jpg",
+      "recipe_image": "https://i.ibb.co/S6wPYx2/2.png",
       "short_description": "Healthy and flavorful grilled salmon fillets.",
       "ingredients": [
         "4 salmon fillets",

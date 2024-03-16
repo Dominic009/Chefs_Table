@@ -39,7 +39,7 @@ const Items = ({ recipe }) => {
             <p className="flex items-center gap-2"><IoMdTime></IoMdTime>{preparing_time}</p>
             <p className="flex items-center gap-2"><FaFire></FaFire>{calories}</p>
           </div>
-          <button className="btn">Cook</button>
+          <button className="btn">Want to Cook</button>
         </div>
       </div>
     </div>
