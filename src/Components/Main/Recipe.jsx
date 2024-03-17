@@ -3,13 +3,12 @@ import Items from "./Recipe items/Items";
 import Que from "./Que";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import Cooking from "./Cooking";
+
 
 
 const Recipe = () => {
   const [recipes, setRecipes] = useState([]);
   const [cook, setCook] = useState([]);
-  const [cooking, setCooking] = useState([]);
 
   useEffect(() => {
     fetch("./recipes.json")
@@ -29,14 +28,9 @@ const Recipe = () => {
   };
 
   const handlePrepare = (id) => {
-    const cookingItem = cook.find((item) => item.recipe_id === id);
-    if (cookingItem) {
       const updatedCook = cook.filter((item) => item.recipe_id !== id);
       setCook(updatedCook);
-      setCooking([...cooking, cookingItem]);
-  };
-
-console.log(cooking)
+  }
 
   return (
     <div className="text-center">
@@ -83,7 +77,7 @@ console.log(cooking)
                       {/* <th>1</th> */}
                       {
                         cook.map((item, index) => <Que index={index} item={item} key={index}
-                          handlePrepare={handlePrepare} handleCooking={handleCooking}></Que>)
+                          handlePrepare={handlePrepare}></Que>)
                       }
                     </tr>
                   </tbody>
@@ -95,7 +89,7 @@ console.log(cooking)
           
           <div className="mt-7 border rounded-xl p-3">
           <div>
-                <h1 className="text-2xl font-bold text-white mb-2">Cooking on progress : {cooking.length}</h1>
+                <h1 className="text-2xl font-bold text-white mb-2">Cooking on progress :</h1>
             </div>
              <div>
               <div className="overflow-x-auto bg-white p-5 rounded-xl">
@@ -125,5 +119,6 @@ console.log(cooking)
     </div>
   );
 };
+
 
 export default Recipe;
