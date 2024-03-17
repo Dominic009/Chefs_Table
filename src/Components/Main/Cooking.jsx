@@ -1,34 +1,26 @@
-
 const Cooking = () => {
 
-    // const {recipe_name, preparation_time, calories} = recipe;
 
-    return (
-        <div>
-            <div>
-                <h1 className="text-2xl font-bold text-white mb-2">Cooking on progress : 0</h1>
-            </div>
-             <div>
-              <div className="overflow-x-auto bg-white p-5 rounded-xl">
-                <table className="table text-gray-500">
-                  {/* head */}
-                  <thead className="flex">
-                    <tr className="flex justify-end gap-2 w-[80%] text-[16px]">
-                      <th>Name</th>
-                      <th>Time</th>
-                      <th>Calories</th>
-                    </tr>
-                  </thead>
-                  <tbody className="flex">
-                   
-                  </tbody>
-                </table>
-                <br />
-              </div>
-            </div>
+  return (
+    <div>
+      <div className="flex text-gray-500 hover:bg-green-300 hover:text-green-900 hover:font-semibold fira">
+        <td className="flex justify-center items-center text-gray-600">
+          {index + 1}
+        </td>
+        <td>{que}</td>
+        <td>{que} </td>
+        <td>{que}</td>
+
+        <div className="mt-2 flex">
+          <button
+            className="btn bg-green-500 hover:bg-white hover:text-green-800 text-white scale-90 rounded-full"
+          >
+            Prepare
+          </button>
         </div>
-    );
-    
+      </div>
+    </div>
+  );
 };
 
 export default Cooking;

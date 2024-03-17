@@ -1,4 +1,4 @@
-const Que = ({ item, index, handlePrepare }) => {
+const Que = ({ item, index, handlePrepare, handleCooking }) => {
   return (
     <div>
         
@@ -9,7 +9,7 @@ const Que = ({ item, index, handlePrepare }) => {
         <td>{item.calories}</td>
 
         <div className="mt-2 flex">
-          <button onClick={() => handlePrepare(item.recipe_id)} className="btn bg-green-500 hover:bg-white hover:text-green-800 text-white scale-90 rounded-full">
+          <button onClick={() => {handlePrepare(item.recipe_id);}} className="btn bg-green-500 hover:bg-white hover:text-green-800 text-white scale-90 rounded-full">
             Prepare
           </button>
         </div>

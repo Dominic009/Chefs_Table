@@ -16,10 +16,10 @@ const Items = ({ recipe, handleWantToCook }) => {
     <div>
       {/* left side */}
       <div className=" rounded-xl p-5 border border-gray-200 text-left hover:scale-[103%] hover:shadow-xl transition-all ease-in cursor-pointer">
-        <div className="*:mb-3 bg-white p-4 rounded-xl">
+        <div className="*:mnded-xl">
           <img src={recipe_image} alt="" />
           <h1 className="text-xl font-bold">{recipe_name}</h1>
-          <p className="fira text-gray-500">{short_description}</p>
+          <p className="fira text-gray-500">{short_description.slice(0,34)}</p>
           <hr />
           <div className="mb-3">
             <span className="font-semibold mb-1">Ingredients :</span>{" "}
@@ -48,7 +48,7 @@ const Items = ({ recipe, handleWantToCook }) => {
           </div>
           <button
             onClick={() => handleWantToCook(recipe)}
-            className="btn bg-green-500 text-white hover:text-green-500"
+            cb-3 bg-white p-4 roulassName="btn bg-green-500 text-white hover:text-green-500"
           >
             Want to Cook
           </button>
