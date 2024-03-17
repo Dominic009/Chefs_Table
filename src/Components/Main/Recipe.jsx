@@ -41,9 +41,9 @@ const Recipe = () => {
         eat!
       </p>
 
-      <div className="flex gap-4">
+      <div className="flex flex-col md:flex-row gap-4">
         {/* left side */}
-        <div className="w-[70%] grid md:grid-cols-2 gap-4">
+        <div className="md:w-[70%] grid md:grid-cols-2 gap-4">
           {recipes.map((recipe) => (
             <Items
               key={recipe.recipe_id}
@@ -55,17 +55,17 @@ const Recipe = () => {
         {/* right side */}
         <div>
           <ToastContainer></ToastContainer>
-          <div className="border rounded-xl w-[440px] p-3">
+          <div className="border rounded-xl md:w-[440px] p-3">
             <h1 className="text-2xl font-bold text-white mb-2">
               Ready to cook : {cook.length}
             </h1>
 
             <div>
-              <div className="overflow-x-auto bg-white p-5 rounded-xl">
+              <div className="overflow-x-auto bg-white md:p-5 rounded-xl">
                 <table className="table text-gray-500">
                   {/* head */}
                   <thead className="flex">
-                    <tr className="flex justify-end gap-2 w-[80%] text-[16px]">
+                    <tr className="flex m:justify-end md:gap-2 w-[80%] text-[16px]">
                       <th>Name</th>
                       <th>Time</th>
                       <th>Calories</th>
@@ -87,16 +87,17 @@ const Recipe = () => {
             </div>
           </div>
           
+          {/* Cooking que */}
           <div className="mt-7 border rounded-xl p-3">
           <div>
-                <h1 className="text-2xl font-bold text-white mb-2">Cooking on progress :</h1>
+                <h1 className="text-2xl font-bold text-white mb-2">Cooking que : 0</h1>
             </div>
              <div>
-              <div className="overflow-x-auto bg-white p-5 rounded-xl">
+              <div className="overflow-x-auto bg-white md:p-5 rounded-xl">
                 <table className="table text-gray-500">
                   {/* head */}
                   <thead className="flex">
-                    <tr className="flex justify-end gap-2 w-[80%] text-[16px]">
+                    <tr className="flex md:justify-end md:gap-2 w-[80%] text-[16px]">
                       <th>Name</th>
                       <th>Time</th>
                       <th>Calories</th>

@@ -2,6 +2,7 @@ import "./App.css";
 import Header from "./Components/Header/Header";
 import Banner from "./Components/Banner/Banner";
 import Recipe from "./Components/Main/Recipe";
+import Footer from "./Components/Footer/Footer";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Recipe></Recipe>
         </div>
       </main>
+      <Footer></Footer>
     </>
   );
 }
