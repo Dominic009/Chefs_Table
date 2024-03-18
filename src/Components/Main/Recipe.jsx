@@ -28,8 +28,8 @@ const Recipe = () => {
   };
 
   const handlePrepare = (id) => {
-      const updatedCook = cook.filter((item) => item.recipe_id !== id);
-      setCook(updatedCook);
+    const updatedCook = cook.filter((item) => item.recipe_id !== id);
+    setCook(updatedCook);
   }
 
   return (
@@ -86,13 +86,13 @@ const Recipe = () => {
               </div>
             </div>
           </div>
-          
+
           {/* Cooking que */}
           <div className="mt-7 border rounded-xl p-3">
-          <div>
-                <h1 className="text-2xl font-bold text-white mb-2">Cooking que : 0</h1>
+            <div>
+              <h1 className="text-2xl font-bold text-white mb-2">Cooking que : 0</h1>
             </div>
-             <div>
+            <div>
               <div className="overflow-x-auto bg-white md:p-5 rounded-xl">
                 <table className="table text-gray-500">
                   {/* head */}
@@ -107,11 +107,15 @@ const Recipe = () => {
                     {/* row 1 */}
                     <tr className=" bg-gray-100 border border-green-400">
                       {/* <th>1</th> */}
-            
+
                     </tr>
                   </tbody>
                 </table>
                 <br />
+              </div>
+              <div className="flex justify-between text-white mt-2">
+                <p>Total cooking time : 0 m</p>
+                <p>Total calorie : 0 cal</p>
               </div>
             </div>
           </div>
