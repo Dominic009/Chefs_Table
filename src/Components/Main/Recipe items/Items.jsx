@@ -1,4 +1,4 @@
-import { IoMdTime } from "react-icons/io";
+import { FaClock } from "react-icons/fa";
 import { FaFire } from "react-icons/fa";
 
 const Items = ({ recipe, handleWantToCook }) => {
@@ -15,11 +15,11 @@ const Items = ({ recipe, handleWantToCook }) => {
   return (
     <div>
       {/* left side */}
-      <div className=" rounded-xl p-5 border border-gray-200 text-left hover:scale-[103%] hover:shadow-xl transition-all ease-in cursor-pointer">
-        <div className="*:mb-3 bg-white p-4 rounded-xl">
+      <div className="bg-white rounded-xl p-5 border border-gray-200 text-left hover:scale-[103%] hover:shadow-xl transition-all ease-in cursor-pointer">
+        <div className="*:rounded-xl *:mb-2">
           <img src={recipe_image} alt="" />
           <h1 className="text-xl font-bold">{recipe_name}</h1>
-          <p className="fira text-gray-500">{short_description}</p>
+          <p className="fira text-gray-500">{short_description.slice(0,34)}</p>
           <hr />
           <div className="mb-3">
             <span className="font-semibold mb-1">Ingredients :</span>{" "}
@@ -38,11 +38,11 @@ const Items = ({ recipe, handleWantToCook }) => {
           <hr />
           <div className="flex justify-around gap-5 text-gray-600">
             <p className="flex items-center gap-2">
-              <IoMdTime></IoMdTime>
+              <FaClock className="text-purple-600"></FaClock>
               {preparing_time}
             </p>
             <p className="flex items-center gap-2">
-              <FaFire></FaFire>
+              <FaFire className="text-purple-600"></FaFire>
               {calories}
             </p>
           </div>
