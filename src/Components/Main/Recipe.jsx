@@ -3,14 +3,12 @@ import Items from "./Recipe items/Items";
 import Que from "./Que";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import Cooking from './Cooking'
-
-
+import Cooking from "./Cooking";
 
 const Recipe = () => {
   const [recipes, setRecipes] = useState([]);
   const [cook, setCook] = useState([]);
-  const [currentList, setCurrentList] = useState([])
+  const [currentList, setCurrentList] = useState([]);
 
   useEffect(() => {
     fetch("./recipes.json")
@@ -24,7 +22,6 @@ const Recipe = () => {
     const isExist = cook.find((res) => res.recipe_id == item.recipe_id);
     if (!isExist) {
       setCook([...cook, item]);
-      
     } else {
       notify();
     }
@@ -33,14 +30,12 @@ const Recipe = () => {
   const handlePrepare = (id) => {
     const updatedCook = cook.filter((item) => item.recipe_id !== id);
     // const updateCurentList = currentList.find((item) => item.id !== id);
-    if(updatedCook){
+    if (updatedCook) {
       setCook(updatedCook);
-      setCurrentList([...currentList, updatedCook])
+      setCurrentList([...currentList, updatedCook]);
+    } else {
     }
-    else{
-      
-    }
-  }
+  };
 
   return (
     <div className="text-center">
@@ -51,83 +46,96 @@ const Recipe = () => {
         eat!
       </p>
 
-      <div className="flex flex-col md:flex-row gap-4">
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
         {/* left side */}
-        <div className="md:w-[70%] grid md:grid-cols-2 gap-4">
+        <div className="lg:col-span-2 grid lg:grid-cols-2 gap-4">
           {recipes.map((recipe) => (
             <Items
               key={recipe.recipe_id}
               recipe={recipe}
-              handleWantToCook={handleWantToCook}></Items>
+              handleWantToCook={handleWantToCook}
+            ></Items>
           ))}
         </div>
 
         {/* right side */}
-        <div>
+        <div className="col-span-1 relative">
           <ToastContainer></ToastContainer>
-          <div className="border rounded-xl md:w-[440px] p-3">
-            <h1 className="text-2xl font-bold text-white mb-2">
-              Ready to cook : {cook.length}
-            </h1>
+          <div className="sticky top-2">
+            <div className="border rounded-xl p-3">
+              <h1 className="text-2xl font-bold text-white mb-2">
+                Ready to cook : {cook.length}
+              </h1>
 
-            <div>
-              <div className="overflow-x-auto bg-white md:p-5 rounded-xl">
-                <table className="table text-gray-500">
-                  {/* head */}
-                  <thead className="flex">
-                    <tr className="flex md:justify-end md:gap-2 w-[80%] text-[16px]">
-                      <th>Name</th>
-                      <th>Time</th>
-                      <th>Calories</th>
-                    </tr>
-                  </thead>
-                  <tbody className="flex">
-                    {/* row 1 */}
-                    <tr className=" bg-gray-100 border border-green-400">
-                      {/* <th>1</th> */}
-                      {
-                        cook.map((item, index) => <Que index={index} item={item} key={index}
-                          handlePrepare={handlePrepare}></Que>)
-                      }
-                    </tr>
-                  </tbody>
-                </table>
-                <br />
+              <div>
+                <div className="overflow-x-auto bg-white md:p-5 rounded-xl">
+                  <table className="table text-gray-500">
+                    {/* head */}
+                    <thead className="flex">
+                      <tr className="flex md:justify-end md:gap-2 w-[80%] text-[16px]">
+                        <th>Name</th>
+                        <th>Time</th>
+                        <th>Calories</th>
+                      </tr>
+                    </thead>
+                    <tbody className="flex">
+                      {/* row 1 */}
+                      <tr className=" bg-gray-100 border border-green-400">
+                        {/* <th>1</th> */}
+                        {cook.map((item, index) => (
+                          <Que
+                            index={index}
+                            item={item}
+                            key={index}
+                            handlePrepare={handlePrepare}
+                          ></Que>
+                        ))}
+                      </tr>
+                    </tbody>
+                  </table>
+                  <br />
+                </div>
               </div>
             </div>
-          </div>
 
-          {/* Cooking que */}
-          <div className="mt-7 border rounded-xl p-3">
-            <div>
-              <h1 className="text-2xl font-bold text-white mb-2">Cooking que : {currentList.length}</h1>
-            </div>
-            <div>
-              <div className="overflow-x-auto bg-white md:p-5 rounded-xl">
-                <table className="table text-gray-500">
-                  {/* head */}
-                  <thead className="flex">
-                    <tr className="flex md:justify-end md:gap-2 w-[80%] text-[16px]">
-                      <th>Name</th>
-                      <th>Time</th>
-                      <th>Calories</th>
-                    </tr>
-                  </thead>
-                  <tbody className="flex">
-                    {/* row 1 */}
-                    <tr className=" bg-gray-100 border border-green-400 w-full">
-                      {/* <th>1</th> */}
-                        {
-                          currentList.map((dish, index) => <Cooking key={index} dish={dish} index={index}></Cooking>)
-                        }
-                    </tr>
-                  </tbody>
-                </table>
-                <br />
+            {/* Cooking que */}
+            <div className="mt-7 border rounded-xl p-3">
+              <div>
+                <h1 className="text-2xl font-bold text-white mb-2">
+                  Cooking que : {currentList.length}
+                </h1>
               </div>
-              <div className="flex justify-between text-white mt-2">
-                <p>Total cooking time : 0 m</p>
-                <p>Total calorie : 0 cal</p>
+              <div>
+                <div className="overflow-x-auto bg-white md:p-5 rounded-xl">
+                  <table className="table text-gray-500">
+                    {/* head */}
+                    <thead className="flex border">
+                      <tr className="flex md:justify-end md:gap-2 text-[16px]">
+                        <th>Name</th>
+                        <th>Time</th>
+                        <th>Calories</th>
+                      </tr>
+                    </thead>
+                    <tbody className="flex">
+                      {/* row 1 */}
+                      <tr className=" bg-gray-100 border border-green-400 w-full">
+                        {/* <th>1</th> */}
+                        {currentList.map((dish, index) => (
+                          <Cooking
+                            key={index}
+                            dish={dish}
+                            index={index}
+                          ></Cooking>
+                        ))}
+                      </tr>
+                    </tbody>
+                  </table>
+                  <br />
+                </div>
+                <div className="flex justify-between text-white mt-2">
+                  <p>Total cooking time : 0 m</p>
+                  <p>Total calorie : 0 cal</p>
+                </div>
               </div>
             </div>
           </div>
@@ -136,6 +144,5 @@ const Recipe = () => {
     </div>
   );
 };
-
 
 export default Recipe;

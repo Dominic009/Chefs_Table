@@ -5,7 +5,7 @@ const Header = () => {
   return (
     <div className="grid grid-cols-2 md:grid-cols-3 items-center gap-3">
       <div>
-        <img src={Logo} className="w-52"/>
+        <img src={Logo} className="w-44" />
       </div>
 
       <div className="hidden md:block">
@@ -17,10 +17,14 @@ const Header = () => {
         </ul>
       </div>
 
-      <div className="flex justify-center gap-1 items-center scale-[50%] md:scale-100">
+      <div className="flex justify-end gap-1 items-center scale-[50%] md:scale-100">
         <div className="flex items-center relative">
-          <input className="px-3 md:px-7 py-1 rounded-2xl outline-none opacity-85 hover:opacity-100" type= "text" placeholder="Search" />
-          <IoIosSearch className="absolute left-[33%] md:left-2 scale-110 text-gray-500" />
+          <input
+            className="px-3 md:px-7 py-1 rounded-2xl outline-none opacity-85 hover:opacity-100"
+            type="text"
+            placeholder="Search"
+          />
+          <IoIosSearch className="absolute md:left-2 scale-110 text-gray-500" />
         </div>
 
         <div className="bg-white rounded-full p-3 cursor-pointer scale-95 md:scale-100">

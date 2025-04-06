@@ -2,7 +2,7 @@ const Que = ({ item, index, handlePrepare }) => {
   return (
     <div>
         
-      <div className="flex text-gray-500 hover:bg-green-300 hover:text-green-900 hover:font-semibold fira">
+      <div className="flex text-gray-500 hover:bg-green-300 hover:text-green-900 hover:font-semibold">
         <td className="flex justify-center items-center text-gray-600">{index+1}</td>
         <td>{item.recipe_name}</td>
         <td>{item.preparing_time} </td>

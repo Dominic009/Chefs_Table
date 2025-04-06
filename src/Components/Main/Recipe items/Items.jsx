@@ -15,9 +15,9 @@ const Items = ({ recipe, handleWantToCook }) => {
   return (
     <div>
       {/* left side */}
-      <div className="bg-white rounded-xl p-5 border border-gray-200 text-left hover:scale-[103%] hover:shadow-xl transition-all ease-in cursor-pointer">
-        <div className="*:rounded-xl *:mb-2">
-          <img src={recipe_image} alt="" />
+      <div className="bg-white rounded-xl p-3 border-gray-200 text-left hover:shadow-xl transition-all ease-in cursor-pointer">
+        <div className="*:mb-2">
+          <img src={recipe_image} alt="" className="w-full"/>
           <h1 className="text-xl font-bold">{recipe_name}</h1>
           <p className="fira text-gray-500">{short_description.slice(0,34)}</p>
           <hr />
@@ -48,7 +48,7 @@ const Items = ({ recipe, handleWantToCook }) => {
           </div>
           <button
             onClick={() => handleWantToCook(recipe)}
-            className="btn bg-green-500 text-white hover:text-green-500"
+            className="btn bg-green-500 text-white hover:text-green-500 w-full"
           >
             Want to Cook
           </button>

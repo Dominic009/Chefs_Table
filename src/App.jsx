@@ -12,7 +12,7 @@ function App() {
           <Header></Header>
         </div>
 
-        <div className="mt-10">
+        <div className="-mt-10">
           <Banner></Banner>
         </div>
 
