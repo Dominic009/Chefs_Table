@@ -24,7 +24,7 @@ const Banner = () => {
 
         <div className="flex gap-7 justify-center md:mt-7 scale-[50%] md:scale-100">
           <button className="btn rounded-full px-5 text-lg bg-[#0be58a] border-none hover:bg-white hover:text-[#068f56]">
-            Explore now
+            <a href="#recipe">Explore now</a>
           </button>
           <button className="btn rounded-full px-5 text-lg bg-transparent text-white hover:bg-[#0be58a]">
             Feedbacks

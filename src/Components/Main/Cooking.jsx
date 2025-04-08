@@ -13,9 +13,7 @@ const Cooking = ({ dish, index }) => {
         <td>{preparing_time}</td>
         <td>{calories}</td>
 
-        <div className=" bg-green-500 text-white rounded px-3 h-5 mr-2">
-          Cooking
-        </div>
+ 
       </div>
       <hr className=" border-b border-b-gray-200 w-[80%] mx-auto" />
     </div>

@@ -20,27 +20,39 @@ const Recipe = () => {
   const notify = () => toast("Item alredy exists!");
 
   const handleWantToCook = (item) => {
-    const isExist = cook.find((res) => res.recipe_id == item.recipe_id);
+    console.log(item);
+    const isExist = cook.find((res) => res.recipe_id === item.recipe_id);
     if (!isExist) {
-      setCook([...cook, item]);
-    } else {
-      notify();
+      return setCook([...cook, item]);
     }
+    notify();
   };
 
+  // const handlePrepare = (id) => {
+  //   const updatedCook = cook.filter((item) => item.recipe_id !== id);
+  //   // const updateCurentList = currentList.find((item) => item.id !== id);
+  //   if (updatedCook) {
+  //     setCook(updatedCook);
+  //     setCurrentList([...currentList, updatedCook]);
+  //     console.log(updatedCook);
+  //   } else {
+  //   }
+  // };
   const handlePrepare = (id) => {
+    const itemToMove = cook.find((item) => item.recipe_id === id);
+    if (!itemToMove) return;
+
     const updatedCook = cook.filter((item) => item.recipe_id !== id);
-    // const updateCurentList = currentList.find((item) => item.id !== id);
-    if (updatedCook) {
-      setCook(updatedCook);
-      setCurrentList([...currentList, updatedCook]);
-    } else {
-    }
+    setCook(updatedCook);
+    setCurrentList([...currentList, itemToMove]);
   };
-  console.log(currentList)
+
+  console.log("Recipe:", recipes);
+  console.log("cook:", cook);
+  console.log("currentList:", currentList);
 
   return (
-    <div className="text-center">
+    <div id="recipe" className="text-center">
       <h1 className="text-3xl font-bold text-white mb-3">Our Recipe</h1>
       <p className="text-gray-200 mb-8">
         It just doesnt look like mouth watering, it is! To learn more about
@@ -60,9 +72,9 @@ const Recipe = () => {
 
         {/* right side */}
         <div className="lg:col-span-2 grid grid-cols-1 xl:grid-cols-2 gap-9">
-          {recipes.map((recipe) => (
+          {recipes.map((recipe, idx) => (
             <Items
-              key={recipe.recipe_id}
+              key={idx}
               recipe={recipe}
               handleWantToCook={handleWantToCook}
             ></Items>

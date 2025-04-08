@@ -7,8 +7,8 @@ import Footer from "./Components/Footer/Footer";
 function App() {
   return (
     <>
-      <main className="relative">
-        <div className="w-[90%] mx-auto p-5 "> 
+      <main id="top" className="relative scroll-smooth">
+        <div className="w-[90%] mx-auto p-5 ">
           <Header></Header>
         </div>
 
@@ -18,6 +18,12 @@ function App() {
 
         <div className="mt-20 w-[98%] mx-auto p-5 ">
           <Recipe></Recipe>
+        </div>
+
+        <div className="right-5 bottom-5 fixed">
+          <button className="w-8 h-8 rounded-full bg-slate-50">
+            <a href="#top">UP</a>
+          </button>
         </div>
       </main>
       <Footer></Footer>
