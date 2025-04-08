@@ -7,16 +7,16 @@ import Footer from "./Components/Footer/Footer";
 function App() {
   return (
     <>
-      <main className="w-[90%] mx-auto p-5">
-        <div>
+      <main className="relative">
+        <div className="w-[90%] mx-auto p-5 "> 
           <Header></Header>
         </div>
 
-        <div className="-mt-10">
+        <div className="-mt-10 w-[90%] mx-auto p-5 ">
           <Banner></Banner>
         </div>
 
-        <div className="mt-20">
+        <div className="mt-20 w-[98%] mx-auto p-5 ">
           <Recipe></Recipe>
         </div>
       </main>

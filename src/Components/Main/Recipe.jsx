@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
 import Items from "./Recipe items/Items";
-import Que from "./Que";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Cooking from "./Cooking";
+import WaitingQue from "./Right panel/WaitingQue";
+import CookingQue from "./Right panel/CookingQue";
 
 const Recipe = () => {
   const [recipes, setRecipes] = useState([]);
@@ -36,19 +37,29 @@ const Recipe = () => {
     } else {
     }
   };
+  console.log(currentList)
 
   return (
     <div className="text-center">
       <h1 className="text-3xl font-bold text-white mb-3">Our Recipe</h1>
-      <p className="text-gray-200 mb-3">
-        It just doesnt look like mouth watering, it is! TO learn more about
+      <p className="text-gray-200 mb-8">
+        It just doesnt look like mouth watering, it is! To learn more about
         this, check out our <br /> new recipes and know the calories that you
         eat!
       </p>
-
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+      <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-5">
         {/* left side */}
-        <div className="lg:col-span-2 grid lg:grid-cols-2 gap-4">
+        <div className="relative">
+          <div className="sticky top-2">
+            {/* Waiting que */}
+            <WaitingQue cook={cook} handlePrepare={handlePrepare} />
+            {/* Cooking que */}
+            <CookingQue currentList={currentList} />
+          </div>
+        </div>
+
+        {/* right side */}
+        <div className="lg:col-span-2 grid grid-cols-1 xl:grid-cols-2 gap-9">
           {recipes.map((recipe) => (
             <Items
               key={recipe.recipe_id}
@@ -57,90 +68,8 @@ const Recipe = () => {
             ></Items>
           ))}
         </div>
-
-        {/* right side */}
-        <div className="col-span-1 relative">
-          <ToastContainer></ToastContainer>
-          <div className="sticky top-2">
-            <div className="border rounded-xl p-3">
-              <h1 className="text-2xl font-bold text-white mb-2">
-                Ready to cook : {cook.length}
-              </h1>
-
-              <div>
-                <div className="overflow-x-auto bg-white md:p-5 rounded-xl">
-                  <table className="table text-gray-500">
-                    {/* head */}
-                    <thead className="flex">
-                      <tr className="flex md:justify-end md:gap-2 w-[80%] text-[16px]">
-                        <th>Name</th>
-                        <th>Time</th>
-                        <th>Calories</th>
-                      </tr>
-                    </thead>
-                    <tbody className="flex">
-                      {/* row 1 */}
-                      <tr className=" bg-gray-100 border border-green-400">
-                        {/* <th>1</th> */}
-                        {cook.map((item, index) => (
-                          <Que
-                            index={index}
-                            item={item}
-                            key={index}
-                            handlePrepare={handlePrepare}
-                          ></Que>
-                        ))}
-                      </tr>
-                    </tbody>
-                  </table>
-                  <br />
-                </div>
-              </div>
-            </div>
-
-            {/* Cooking que */}
-            <div className="mt-7 border rounded-xl p-3">
-              <div>
-                <h1 className="text-2xl font-bold text-white mb-2">
-                  Cooking que : {currentList.length}
-                </h1>
-              </div>
-              <div>
-                <div className="overflow-x-auto bg-white md:p-5 rounded-xl">
-                  <table className="table text-gray-500">
-                    {/* head */}
-                    <thead className="flex border">
-                      <tr className="flex md:justify-end md:gap-2 text-[16px]">
-                        <th>Name</th>
-                        <th>Time</th>
-                        <th>Calories</th>
-                      </tr>
-                    </thead>
-                    <tbody className="flex">
-                      {/* row 1 */}
-                      <tr className=" bg-gray-100 border border-green-400 w-full">
-                        {/* <th>1</th> */}
-                        {currentList.map((dish, index) => (
-                          <Cooking
-                            key={index}
-                            dish={dish}
-                            index={index}
-                          ></Cooking>
-                        ))}
-                      </tr>
-                    </tbody>
-                  </table>
-                  <br />
-                </div>
-                <div className="flex justify-between text-white mt-2">
-                  <p>Total cooking time : 0 m</p>
-                  <p>Total calorie : 0 cal</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
+      <ToastContainer></ToastContainer>
     </div>
   );
 };
